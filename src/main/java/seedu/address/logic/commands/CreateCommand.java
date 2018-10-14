@@ -32,21 +32,30 @@ public class CreateCommand extends Command {
     private static final String MESSAGE_SUCCESS = "New user added successfully!";
     private static final String MESSAGE_FAILURE = "Username already exist.";
 
+    private final Accounts newAccount;
+
     /**
      * Creates an CreateCommand to add the specified {@code Person}
      */
     public CreateCommand(Accounts account) {
+
+        newAccount = account;
+
         if (!UserAccountStorage.checkDuplicateUser(account.getUsername())) {
+<<<<<<< HEAD
             UserAccountStorage.addNewAccount(account.getUsername(), account.getPassword());
             createIsSuccessful = true;
         } else {
             createIsSuccessful = false;
+=======
+            UserAccountStorage.addNewAccount(newAccount.getUsername(), newAccount.getPassword());
+>>>>>>> v1.2-upstream
         }
-
     }
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
+<<<<<<< HEAD
         requireNonNull(model);
 
         if (createIsSuccessful == true) {
@@ -56,5 +65,8 @@ public class CreateCommand extends Command {
         }
 
 
+=======
+        return new CommandResult(String.format(MESSAGE_SUCCESS));
+>>>>>>> v1.2-upstream
     }
 }

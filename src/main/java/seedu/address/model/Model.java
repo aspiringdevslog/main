@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.model.group.Group;
 import seedu.address.model.person.Person;
-import seedu.address.model.timetable.Timetable;
+
 
 /**
  * The API of the Model component.
@@ -42,11 +42,6 @@ public interface Model {
 
     //timetable operations
 
-    /**
-     *
-     * @param timetable
-     */
-    void addTimetable(Timetable timetable);
 
     //Group operations
     /**

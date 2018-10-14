@@ -14,12 +14,12 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CreateCommand;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.DeleteGroupCommand;
+import seedu.address.logic.commands.DownloadTimetableCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditGroupCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindGroupCommand;
-import seedu.address.logic.commands.GetNewTimetableCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ListCommand;
@@ -28,6 +28,7 @@ import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.RegisterCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.UndoCommand;
+import seedu.address.logic.commands.ViewGroupCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -59,8 +60,9 @@ public class AddressBookParser {
         case AddTimetableCommand.COMMAND_WORD:
             return new AddTimetableCommandParser().parse(arguments);
 
-        case GetNewTimetableCommand.COMMAND_WORD:
-            return new GetNewTimetableCommandParser().parse(arguments);
+        case DownloadTimetableCommand.COMMAND_WORD:
+            return new DownloadTimetableCommandParser().parse(arguments);
+
         case AddCommand.COMMAND_WORD:
             return new AddCommandParser().parse(arguments);
 
@@ -84,6 +86,9 @@ public class AddressBookParser {
 
         case FindGroupCommand.COMMAND_WORD:
             return new FindGroupCommandParser().parse(arguments);
+
+        case ViewGroupCommand.COMMAND_WORD:
+            return new ViewGroupCommandParser().parse(arguments);
 
         case RegisterCommand.COMMAND_WORD:
             return new RegisterCommandParser().parse(arguments);
