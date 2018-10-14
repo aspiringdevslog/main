@@ -19,7 +19,6 @@ public class CreateCommand extends Command {
     public static final String COMMAND_WORD = "create";
     private static boolean createIsSuccessful = false;
 
-    //TODO: update MESSAGE_USAGE
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the address book. "
             + "Parameters: "
             + PREFIX_USERNAME + "USERNAME "
@@ -42,20 +41,16 @@ public class CreateCommand extends Command {
         newAccount = account;
 
         if (!UserAccountStorage.checkDuplicateUser(account.getUsername())) {
-<<<<<<< HEAD
             UserAccountStorage.addNewAccount(account.getUsername(), account.getPassword());
             createIsSuccessful = true;
         } else {
             createIsSuccessful = false;
-=======
             UserAccountStorage.addNewAccount(newAccount.getUsername(), newAccount.getPassword());
->>>>>>> v1.2-upstream
         }
     }
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
-<<<<<<< HEAD
         requireNonNull(model);
 
         if (createIsSuccessful == true) {
@@ -63,10 +58,5 @@ public class CreateCommand extends Command {
         } else {
             return new CommandResult(String.format(MESSAGE_FAILURE));
         }
-
-
-=======
-        return new CommandResult(String.format(MESSAGE_SUCCESS));
->>>>>>> v1.2-upstream
     }
 }
