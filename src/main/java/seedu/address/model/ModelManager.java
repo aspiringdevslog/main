@@ -14,11 +14,11 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
 import seedu.address.model.group.Group;
 import seedu.address.model.person.Person;
-import seedu.address.model.timetable.Timetable;
+
 
 /**
- * Represents the in-memory model of the address book data.
- * #TO DO: Refactor methods: hasPerson --> hasElements () {calls has method in Person / Group/ etc} and Group/Person
+ * Represents the in-memory model of the address book data. #TO DO: Refactor methods: hasPerson -->
+ * hasElements () {calls has method in Person / Group/ etc} and Group/Person
  */
 public class ModelManager extends ComponentManager implements Model {
 
@@ -49,11 +49,6 @@ public class ModelManager extends ComponentManager implements Model {
 
     // timetable operations
 
-    @Override
-    public void addTimetable(Timetable timetable) {
-        versionedAddressBook.addTimetable(timetable);
-        indicateAddressBookChanged();
-    }
 
     //group operations
     @Override
@@ -130,8 +125,8 @@ public class ModelManager extends ComponentManager implements Model {
     //=========== Filtered Person/Group List Accessors =============================================================
 
     /**
-     * Returns an unmodifiable view of the list of {@code Person} and {@code Group} backed by the internal list of
-     * {@code versionedAddressBook}
+     * Returns an unmodifiable view of the list of {@code Person} and {@code Group} backed by the
+     * internal list of {@code versionedAddressBook}
      */
     @Override
     public ObservableList<Person> getFilteredPersonList() {
