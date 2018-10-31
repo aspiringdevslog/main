@@ -37,8 +37,6 @@ public class CreateCommand extends Command {
      */
     public CreateCommand(Accounts account) {
 
-        Accounts newAccount = account;
-
         if (!UserAccountStorage.checkDuplicateUser(account.getUsername())) {
             UserAccountStorage.addNewAccount(account.getUsername(), account.getPassword());
             createIsSuccessful = true;

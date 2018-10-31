@@ -13,7 +13,6 @@ public class LoginCommandTest {
     private String testUsername = "test-username";
     private String testPassword = "test-password";
     private Accounts account = new Accounts(testUsername, testPassword);
-    private CreateCommand create = new CreateCommand(account);
 
     @Test
     public void executeLoginSuccessful() {
@@ -37,10 +36,8 @@ public class LoginCommandTest {
         String rightPassword = "test-password";
         Accounts wrongAccount = new Accounts(wrongUsername, rightPassword);
 
-        assertThrows(NullPointerException.class, (
-        ) -> {
-            LoginCommand login = new LoginCommand(wrongAccount);
-        });
+        LoginCommand login = new LoginCommand(wrongAccount);
+        assertFalse(login.getLoginIsSuccessful());
     }
 
 
