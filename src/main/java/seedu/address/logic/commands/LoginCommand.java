@@ -41,7 +41,9 @@ public class LoginCommand extends Command {
      * Login
      */
     public LoginCommand(Accounts account) {
-        if (UserAccountStorage.checkPasswordMatch(account.getUsername(), account.getPassword())) {
+        if (!UserAccountStorage.checkDuplicateUser(account.getUsername())) {
+            loginIsSuccessful = false;
+        } else if (UserAccountStorage.checkPasswordMatch(account.getUsername(), account.getPassword())) {
             AddressBookParser.updateLoggedOnStatus(true);
             loginIsSuccessful = true;
         } else {
