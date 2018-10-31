@@ -53,19 +53,19 @@ public class AddressBookParser {
      * Used for initial separation of command word and args.
      */
     private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
-    private boolean userIsLoggedOn;
+//     private boolean userIsLoggedOn;
 
 
     public AddressBookParser(boolean setLoggedOn) { // for test
-        this.userIsLoggedOn = setLoggedOn;
+//         this.userIsLoggedOn = setLoggedOn;
     }
 
     public AddressBookParser() { // default constructor
-        userIsLoggedOn = false;
+//         userIsLoggedOn = false;
     }
 
     public void updateLoggedOnStatus(boolean status) {
-        userIsLoggedOn = status;
+//         userIsLoggedOn = status;
     }
 
     /**
