@@ -39,7 +39,7 @@ public class LoginCommandTest {
 
         assertThrows(NullPointerException.class, (
         ) -> {
-            LoginCommand login = new LoginCommand(wrongAccount);
+            new LoginCommand(wrongAccount);
         });
     }
 
