@@ -13,34 +13,24 @@ public class LoginCommandTest {
     private String testUsername = "test-username";
     private String testPassword = "test-password";
     private Accounts account = new Accounts(testUsername, testPassword);
-    private CreateCommand create = new CreateCommand(account);
+
 
     @Test
     public void executeLoginSuccessful() {
+        new CreateCommand(account);
         LoginCommand login = new LoginCommand(account);
         assertTrue(login.getLoginIsSuccessful());
     }
 
     @Test
     public void executeLoginWithWrongPasswordFailure() {
+        new CreateCommand(account);
         String rightUsername = "test-username";
         String wrongPassword = "wrong-password";
         Accounts wrongAccount = new Accounts(rightUsername, wrongPassword);
 
         LoginCommand login = new LoginCommand(wrongAccount);
         assertFalse(login.getLoginIsSuccessful());
-    }
-
-    @Test // expects null pointer exception since we are using a username that is not in hashmap
-    public void executeLoginWithWrongUsernameFailure() {
-        String wrongUsername = "wrong-username";
-        String rightPassword = "test-password";
-        Accounts wrongAccount = new Accounts(wrongUsername, rightPassword);
-
-        assertThrows(NullPointerException.class, (
-        ) -> {
-            new LoginCommand(wrongAccount);
-        });
     }
 
 
